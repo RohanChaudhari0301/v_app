@@ -27,7 +27,16 @@ SECRET_KEY = 'django-insecure-0pm7z6t6cl1w=@=ze*ir3jk1h^57cog-foi7cd%+cgzo8zm4j2
 DEBUG = False
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "v-app-sobe.onrender.com",
+    "localhost",
+    "127.0.0.1"
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://v-app-sobe.onrender.com"
+]
+
 
 
 # Application definition
