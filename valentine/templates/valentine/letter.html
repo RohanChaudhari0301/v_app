@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9D%A4%3C/text%3E%3C/svg%3E">
+    <title>For My Valentine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at top, #ffe0e9 0%, #ff99c8 40%, #f06595 100%);
+            overflow: hidden;
+            color: #4a1c40;
+        }
+
+        .hearts {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.75);
+            animation: floatUp 10s linear infinite;
+        }
+
+        .heart:nth-child(2) { left: 15%; animation-delay: 1s; }
+        .heart:nth-child(3) { left: 35%; animation-delay: 2.5s; }
+        .heart:nth-child(4) { left: 60%; animation-delay: 4s; }
+        .heart:nth-child(5) { left: 80%; animation-delay: 5.5s; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh); opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: translateY(-20vh); opacity: 0; }
+        }
+
+        .letter-card {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 32px 28px 30px;
+            border-radius: 26px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+            max-width: 720px;
+            width: 92%;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            color: #d62828;
+            margin-bottom: 6px;
+            font-size: 46px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 15px;
+            color: #7b2d3a;
+        }
+
+        .letter-body {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #4a1c40;
+            white-space: pre-line;
+        }
+
+        .closing {
+            margin-top: 20px;
+        }
+
+        .signature {
+            margin-top: 4px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 30px;
+            color: #d62828;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 14px;
+            left: 18px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+            color: #d62828;
+            font-size: 13px;
+            cursor: pointer;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .back-btn:hover {
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="hearts">
+    <div class="heart">❤</div>
+    <div class="heart">❤</div>
+    <div class="heart">❤</div>
+    <div class="heart">❤</div>
+    <div class="heart">❤</div>
+</div>
+
+<div class="letter-card">
+    <form action="{% url 'yes_page' %}" method="get">
+        <button type="submit" class="back-btn">
+            ← Back
+        </button>
+    </form>
+
+    <h1>For My Valentine</h1>
+    <p class="subtitle">A little letter, just for you. 💌</p>
+
+    <div class="letter-body">
+        {{ letter_text|linebreaksbr }}
+    </div>
+</div>
+
+</body>
+</html>
+
