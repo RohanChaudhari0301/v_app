@@ -1,14 +1,14 @@
 {
     "builds": [
       {
-        "src": "valentinesite/wsgi.py",
+        "src": "api/index.py",
         "use": "@vercel/python"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "valentinesite/wsgi.py"
+        "dest": "api/index.py"
       }
     ]
   }
