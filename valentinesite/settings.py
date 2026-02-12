@@ -29,12 +29,14 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     "v-app-sobe.onrender.com",
+    "v-app-sobe.onrender.com/yes/",
     "localhost",
     "127.0.0.1"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://v-app-sobe.onrender.com"
+    "https://v-app-sobe.onrender.com",
+    "https://v-app-sobe.onrender.com/yes/"
 ]
 
 
